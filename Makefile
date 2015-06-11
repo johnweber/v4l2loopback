@@ -41,9 +41,8 @@ v4l2loopback.ko:
 	$(MAKE) -C $(KERNEL_SRC) M=$(PWD) modules
 
 install-all: install install-utils install-man
-install:
+modules_install install: all
 	$(MAKE) -C $(KERNEL_SRC) M=$(PWD) modules_install
-	depmod -a  $(KERNEL_VERSION)
 
 install-utils: utils/v4l2loopback-ctl
 	$(INSTALL_DIR) "$(DESTDIR)$(BINDIR)"
